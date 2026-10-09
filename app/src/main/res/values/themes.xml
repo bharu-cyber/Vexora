@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main Vexora theme -->
+    <style
+        name="Theme.Vexora"
+        parent="android:style/Theme.Material.Light.NoActionBar">
+
+        <!-- Font -->
+        <item name="android:fontFamily">sans</item>
+
+        <!-- Status bar -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#020014</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">#020014</item>
+
+        <!-- No default action bar -->
+        <item name="android:windowActionModeOverlay">true</item>
+
+    </style>
+
+
+    <!-- Vexora starting/splash theme -->
+    <style
+        name="Theme.Vexora.Starting"
+        parent="Theme.SplashScreen">
+
+        <!-- Dark space background -->
+        <item name="windowSplashScreenBackground">
+            #020014
+        </item>
+
+        <!-- Vexora launcher icon -->
+        <item name="windowSplashScreenAnimatedIcon">
+            @mipmap/ic_launcher
+        </item>
+
+        <!-- Theme after system splash -->
+        <item name="postSplashScreenTheme">
+            @style/Theme.Vexora
+        </item>
+
+    </style>
+
+</resources>

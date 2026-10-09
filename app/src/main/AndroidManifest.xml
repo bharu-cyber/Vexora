@@ -1,0 +1,68 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:label="Vexora"
+        android:supportsRtl="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.Vexora">
+
+        <!-- Main Vexora screen -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Vexora.Starting">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Photo Theme -->
+        <activity
+            android:name=".PhotoThemeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vexora" />
+
+        <!-- Encode screen -->
+        <activity
+            android:name=".EncodeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vexora" />
+
+        <!-- Decode screen -->
+        <activity
+            android:name=".DecodeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vexora" />
+
+        <!-- Theme screen -->
+        <activity
+            android:name=".ThemeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Vexora" />
+
+        <!-- Vexora Keyboard -->
+        <service
+            android:name=".VexoraKeyboardService"
+            android:label="Vexora Keyboard"
+            android:permission="android.permission.BIND_INPUT_METHOD"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/vexora_input_method" />
+
+        </service>
+
+    </application>
+
+</manifest>
