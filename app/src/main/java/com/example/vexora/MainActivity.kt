@@ -260,11 +260,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun GalaxyBackground() {
-    Image(
-        painter = painterResource(R.drawable.bg_galaxy),
-        contentDescription = null,
-        modifier = Modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(SpaceDark)
     )
 }
 
@@ -952,7 +951,7 @@ private fun HowItWorksScreen(
         title = if (isTamil) "Vexora எப்படிச் செயல்படுகிறது"
         else "How Vexora Works",
         subtitle = if (isTamil)
-            "செய்தியை மறையாக்கம் செய்து, பகிர்ந்து, மீண்டும் வாசிப்பது எப்படி என்பதை அறியுங்கள்."
+            "செய்தியை மறையாக்கம் செய்து, பகிர்ந்து, மீண்டும் வாசிப்பது எப்படி எ[...]"
         else
             "Learn how to encode, share, and decode a hidden message.",
         onBack = onBack
@@ -962,12 +961,12 @@ private fun HowItWorksScreen(
                 Triple(
                     "01",
                     "உங்கள் ரகசியத்தை எழுதுங்கள்",
-                    "மறையாக்கம் திரையைத் திறந்து, மறைக்க விரும்பும் செய்தியை உள்ளிடுங்கள்."
+                    "மறையாக்கம் திரையைத் திறந்து, மறைக்க விரும்பும் செய்தியை உள்ளிடு[...]"
                 ),
                 Triple(
                     "02",
                     "மறையாக்கம் செய்யுங்கள்",
-                    "Encode பொத்தானைத் தட்டுங்கள். உங்கள் செயலியில் உள்ள முறைப்படி உரை செயலாக்கப்படும்."
+                    "Encode பொத்தானைத் தட்டுங்கள். உங்கள் செயலியில் உள்ள முறைப்படி உரை செ[...]"
                 ),
                 Triple(
                     "03",
@@ -977,17 +976,17 @@ private fun HowItWorksScreen(
                 Triple(
                     "04",
                     "கவனமாகப் பகிருங்கள்",
-                    "தேவையான நபருக்கு உரையை அனுப்புங்கள். மறையாக்கம் மட்டும் முழுப் பாதுகாப்பை உறுதி செய்யாது."
+                    "தேவையான நபருக்கு உரையை அனுப்புங்கள். மறையாக்கம் மட்டும் முழுப் [...]"
                 ),
                 Triple(
                     "05",
                     "Decode திறக்கவும்",
-                    "Vexora-வைத் திறந்து Decode திரைக்குச் செல்லுங்கள்; பின்னர் உரையை உள்ளிடுங்கள்."
+                    "Vexora-வைத் திறந்து Decode திரைக்குச் செல்லுங்கள்; பின்னர் உரையை உள்ளிடு[...]"
                 ),
                 Triple(
                     "06",
                     "செய்தியைப் பாருங்கள்",
-                    "Decode பொத்தானைத் தட்டுங்கள். சரியான உரையாக இருந்தால் அசல் செய்தி காட்டப்படும்."
+                    "Decode பொத்தானைத் தட்டுங்கள். சரியான உரையாக இருந்தால் அசல் செய்தி கா[...]"
                 ),
                 Triple(
                     "07",
@@ -997,7 +996,7 @@ private fun HowItWorksScreen(
                 Triple(
                     "08",
                     "தகவலைப் பாதுகாக்கவும்",
-                    "செயலியின் பாதுகாப்பு முறையைச் சரிபார்க்கும் வரை கடவுச்சொற்கள் அல்லது வங்கி விவரங்களை உள்ளிட வேண்டாம்."
+                    "செயலியின் பாதுகாப்பு முறையைச் சரிபார்க்கும் வரை கடவுச்சொற்கள்[...]"
                 )
             )
         } else {
@@ -1005,69 +1004,55 @@ private fun HowItWorksScreen(
                 Triple(
                     "01",
                     "Write your secret",
-                    "Open Encode and enter the message you want to keep private."
+                    "Open the Encode screen and enter the message you want to hide."
                 ),
                 Triple(
                     "02",
-                    "Encode the message",
-                    "Tap Encode. Vexora processes your message using the method implemented in your app."
+                    "Encode it",
+                    "Tap Encode button. Your app processes your text based on its algorithm."
                 ),
                 Triple(
                     "03",
                     "Copy the result",
-                    "Copy the generated text and keep it intact so it can be decoded correctly."
+                    "Copy the generated text and save it unchanged."
                 ),
                 Triple(
                     "04",
                     "Share carefully",
-                    "Send the encoded text to the intended recipient. Encoding alone does not guarantee security."
+                    "Send the text to the intended person. Only encoding will fully uncover the message."
                 ),
                 Triple(
                     "05",
                     "Open Decode",
-                    "Open Vexora, choose Decode, and enter the encoded text."
+                    "Open Vexora and go to Decode screen; then paste the text."
                 ),
                 Triple(
                     "06",
-                    "Reveal the message",
-                    "Tap Decode. If the text is valid for your app's method, the original message should appear."
+                    "See the message",
+                    "Tap Decode button. If the text is correct, the original message will be revealed."
                 ),
                 Triple(
                     "07",
-                    "Explore themes",
-                    "Return to the home screen and tap Themes to explore appearance options."
+                    "See themes",
+                    "Go back to home and open Themes to change the appearance."
                 ),
                 Triple(
                     "08",
                     "Protect your information",
-                    "Avoid passwords and banking details until your app's security method has been reviewed."
+                    "Check the app's security method until passwords are processed securely."
                 )
             )
         }
 
         steps.forEach { (number, title, description) ->
-            InfoSection(number, title, description)
+            InfoSection(
+                number = number,
+                title = title,
+                description = description
+            )
         }
-
-        Spacer(Modifier.height(8.dp))
-
-        Text(
-            text = if (isTamil)
-                "VEXORA • உங்கள் கட்டுப்பாட்டில்"
-            else
-                "VEXORA • YOUR MESSAGES, YOUR CONTROL",
-            modifier = Modifier.fillMaxWidth(),
-            color = NeonPurple,
-            fontSize = 11.sp,
-            letterSpacing = 1.sp,
-            textAlign = TextAlign.Center
-        )
-
-        Spacer(Modifier.height(20.dp))
     }
 }
-
-/* -------------------- SETTINGS -------------------- */
 
 @Composable
 private fun SettingsScreen(
@@ -1075,236 +1060,53 @@ private fun SettingsScreen(
     onLanguageChange: (String) -> Unit,
     onBack: () -> Unit
 ) {
-    val context = LocalContext.current
-    var showLanguageDialog by remember {
-        mutableStateOf(false)
-    }
-
-    val versionName = remember {
-        try {
-            @Suppress("DEPRECATION")
-            context.packageManager
-                .getPackageInfo(context.packageName, 0)
-                .versionName ?: "Unknown"
-        } catch (_: PackageManager.NameNotFoundException) {
-            "Unknown"
-        }
-    }
-
     VexoraPageLayout(
         title = if (isTamil) "அமைப்புகள்" else "Settings",
         subtitle = if (isTamil)
-            "Vexora பயன்பாட்டின் தகவல்களும் விருப்பங்களும்."
+            "உங்கள் விருப்பத்தை அமைக்கவும்"
         else
-            "Information and options for your Vexora app.",
+            "Customize your preferences",
         onBack = onBack
     ) {
-        InfoSection(
-            number = "APP",
-            title = if (isTamil) "Vexora பற்றி" else "About Vexora",
-            description = if (isTamil)
-                "Vexora என்பது ரகசிய செய்திகளுக்கான பயன்பாடு.\nபதிப்பு: $versionName"
-            else
-                "Vexora is your secret-message app.\nVersion: $versionName"
-        )
-
-        SettingsOption(
-            icon = "文",
-            title = if (isTamil) "மொழி" else "Language",
-            description = if (isTamil)
-                "தற்போதைய மொழி: தமிழ்"
-            else
-                "Current language: English",
-            onClick = {
-                showLanguageDialog = true
-            }
-        )
-
-        SettingsOption(
-            icon = "↗",
-            title = if (isTamil)
-                "Vexora Keyboard-ஐப் பகிரவும்"
-            else
-                "Share Vexora Keyboard",
-            description = if (isTamil)
-                "உங்கள் நண்பர்களுடன் Vexora-வைப் பகிருங்கள்."
-            else
-                "Share Vexora with your friends.",
-            onClick = {
-                val message = if (isTamil) {
-                    "Vexora-வை முயற்சி செய்து பாருங்கள்!"
-                } else {
-                    "Check out Vexora, a secret-message app!"
-                }
-
-                val shareIntent = Intent(Intent.ACTION_SEND).apply {
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_TEXT, message)
-                }
-
-                try {
-                    context.startActivity(
-                        Intent.createChooser(
-                            shareIntent,
-                            if (isTamil) "Vexora-வைப் பகிரவும்"
-                            else "Share Vexora"
-                        )
-                    )
-                } catch (_: Exception) {
-                    Toast.makeText(
-                        context,
-                        if (isTamil)
-                            "பகிர முடியவில்லை."
-                        else
-                            "Unable to share right now.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        )
-
-        Spacer(Modifier.height(8.dp))
-
-        Button(
-            onClick = onBack,
+        Text(
+            text = if (isTamil) "மொழி" else "Language",
+            color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.SemiBold,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(52.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF45136E),
-                contentColor = Color.White
-            ),
-            shape = RoundedCornerShape(16.dp)
-        ) {
-            Text(
-                text = if (isTamil)
-                    "முகப்புக்குத் திரும்பு"
-                else
-                    "Back to Home",
-                fontSize = 16.sp
-            )
-        }
-
-        Spacer(Modifier.height(20.dp))
-    }
-
-    if (showLanguageDialog) {
-        AlertDialog(
-            onDismissRequest = {
-                showLanguageDialog = false
-            },
-            title = {
-                Text(
-                    if (isTamil)
-                        "மொழியைத் தேர்ந்தெடுக்கவும்"
-                    else
-                        "Choose language"
-                )
-            },
-            text = {
-                Column {
-                    TextButton(
-                        onClick = {
-                            onLanguageChange("en")
-                            showLanguageDialog = false
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            text = "English",
-                            modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Start
-                        )
-                    }
-
-                    TextButton(
-                        onClick = {
-                            onLanguageChange("ta")
-                            showLanguageDialog = false
-                        },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Text(
-                            text = "தமிழ்",
-                            modifier = Modifier.fillMaxWidth(),
-                            textAlign = TextAlign.Start
-                        )
-                    }
-                }
-            },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        showLanguageDialog = false
-                    }
-                ) {
-                    Text(if (isTamil) "மூடு" else "Close")
-                }
-            }
+                .padding(bottom = 12.dp)
         )
-    }
-}
 
-@Composable
-private fun SettingsOption(
-    icon: String,
-    title: String,
-    description: String,
-    onClick: () -> Unit
-) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(bottom = 12.dp)
-            .clickable { onClick() },
-        shape = RoundedCornerShape(18.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = GlassSurface
-        )
-    ) {
         Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 24.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Box(
+            Button(
+                onClick = { onLanguageChange("en") },
                 modifier = Modifier
-                    .size(42.dp)
-                    .clip(RoundedCornerShape(12.dp))
-                    .background(NeonPurple.copy(alpha = 0.18f)),
-                contentAlignment = Alignment.Center
+                    .weight(1f)
+                    .height(44.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = NeonBlue
+                )
             ) {
-                Text(
-                    text = icon,
-                    color = NeonPurple,
-                    fontSize = 22.sp
-                )
+                Text("English", fontSize = 12.sp)
             }
 
-            Spacer(Modifier.size(12.dp))
-
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = title,
-                    color = Color.White,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.SemiBold
+            Button(
+                onClick = { onLanguageChange("ta") },
+                modifier = Modifier
+                    .weight(1f)
+                    .height(44.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = NeonPurple
                 )
-
-                Spacer(Modifier.height(4.dp))
-
-                Text(
-                    text = description,
-                    color = SoftText,
-                    fontSize = 12.sp,
-                    lineHeight = 18.sp
-                )
+            ) {
+                Text("தமிழ்", fontSize = 12.sp)
             }
-
-            Text(
-                text = "›",
-                color = NeonBlue,
-                fontSize = 28.sp
-            )
         }
     }
 }
